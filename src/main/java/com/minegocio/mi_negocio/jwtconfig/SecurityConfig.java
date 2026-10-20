@@ -59,6 +59,8 @@ public class SecurityConfig {
 
                 // públicos
                 .requestMatchers("/api/auth/**", "/api/public/**").permitAll()
+                // el error dispatch no debe convertirse en 401
+                .requestMatchers("/error").permitAll()
 
                 // solo el dueño del SaaS
                 .requestMatchers("/api/admin/**").hasAuthority("ROLE_SUPER_ADMIN")

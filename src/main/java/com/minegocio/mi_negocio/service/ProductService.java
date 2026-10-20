@@ -82,7 +82,8 @@ public class ProductService {
         product.setCategory(resolveCategory(storeId, req.getCategoryId()));
         product.setPrice(req.getPrice());
         product.setActive(req.getActive() == null || req.getActive());
-        productRepository.save(product);
+        // Flush para que @CreationTimestamp se materialice antes de mapear la respuesta.
+        productRepository.saveAndFlush(product);
 
         return CatalogMapper.toResponse(product);
     }

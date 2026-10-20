@@ -3,7 +3,6 @@ package com.minegocio.mi_negocio.dtos.catalog;
 import java.util.UUID;
 
 public class CategoryResponse {
-
     private final UUID id;
     private final String name;
     private final boolean active;
